@@ -11,7 +11,7 @@ const Index = ({ countriesList }) => {
         return country.name.common.toLowerCase().includes(search.toLowerCase());
       })
     );
-  }, [search]);
+  }, [countriesList, search]);
   return (
     <>
       <Head>
@@ -37,7 +37,11 @@ const Index = ({ countriesList }) => {
         </section>
         <section className="flex flex-wrap items-center justify-around">
           {countries.map((country) => (
-            <Card name={country.name.common} image={country.flags.png} />
+            <Card
+              key={country.cca2}
+              name={country.name.common}
+              image={country.flags.png}
+            />
           ))}
         </section>
       </main>
